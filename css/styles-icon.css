@@ -1,0 +1,11 @@
+.icon-body {
+  stroke: black;
+}
+
+svg {
+  width: 20px;
+}
+
+path {
+  fill: black;
+}
