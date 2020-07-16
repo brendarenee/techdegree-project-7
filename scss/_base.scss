@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $main-font;
+  color: $text-dark;
+}
+
+header {
+/*****FLEX CONTAINER*****************/
+  padding: 10px;
+  background-color: $light-main-color;
+  & * {
+    color: $text-light;
+  }
+  & #head-left {
+    & h1 {
+      font-family: $display-font;
+    }
+  }
+  & #head-right {
+    margin-left: auto;
+    & svg {
+      margin-right: 15px;
+    }
+    & img {
+      margin-right: 15px;
+    }
+    & h2 {
+      font-weight: 300;
+    }
+  }
+}
+
+nav {
+/*****FLEX CONTAINER*****************/
+  background-color: $dark-main-color;
+  padding-top: 20px;
+  & a {
+    margin-bottom: 15px;
+  }
+}
+
+main {
+/*****GRID CONTAINER*****************/
+  padding: 20px;
+
+  & .section-heading {
+    padding-bottom: 20px;
+  }
+  & #social-stats-container {
+    & .stats-widget {
+      /*****FLEX CONTAINER*****************/
+      height: 125px;
+      background-color: $text-area-light;
+      margin: 0 20px 20px 20px;
+      & .social-stats-name {
+        font-size: 45px;
+        & h6 {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  & #members-container {
+    /*****GRID CONTAINERS*****************/
+    & .members {
+      padding: 10px;
+      & .member-img {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  & #activity-container {
+    /*****GRID CONTAINERS*****************/
+    & .member-activity {
+      padding: 10px;
+      & .member-img {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  & #message-container {
+
+    & .section-heading {
+      align-self: flex-start;
+    }
+    & input {
+      @include text-input;
+      height: 30px;
+    }
+    & textarea {
+      @include text-input;
+      resize: none;
+    }
+    & button {
+      @extend %button-style;
+      width: 100%;
+      color: $text-light;
+      background-color: $dark-main-color;
+    }
+  }
+
+  & #settings-container {
+    & * {
+      align-self: flex-start;
+    }
+    & h4 {
+      display: inline-block;
+    }
+
+    & .switch-light {
+      display: inline-block;
+      width: 100px;
+    }
+    & span {
+      color: white;
+    }
+    & .timezone-menu {
+      @include text-input;
+      width: 100%;
+    }
+    & div {
+      width: 100%;
+    }
+    & .button-save {
+      @extend %button-style;
+      background-color: $dark-main-color;
+      color: $text-light;
+      width: 48%;
+    }
+    & .button-cancel {
+      @extend %button-style;
+      background-color: $text-area-light;
+      width: 48%;
+    }
+
+
+  }
+
+}

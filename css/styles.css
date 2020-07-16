@@ -1,0 +1,331 @@
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap");
+/*** BODY COLORS ***/
+/*** FONT COLORS ***/
+main #settings-container .button-cancel, main #settings-container .button-save, main #message-container button {
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans Condensed", sans-serif;
+  color: #333333;
+}
+
+header {
+  /*****FLEX CONTAINER*****************/
+  padding: 10px;
+  background-color: #3d5e5e;
+}
+header * {
+  color: lightgray;
+}
+header #head-left h1 {
+  font-family: "Poiret One", cursive;
+}
+header #head-right {
+  margin-left: auto;
+}
+header #head-right svg {
+  margin-right: 15px;
+}
+header #head-right img {
+  margin-right: 15px;
+}
+header #head-right h2 {
+  font-weight: 300;
+}
+
+nav {
+  /*****FLEX CONTAINER*****************/
+  background-color: #2b3838;
+  padding-top: 20px;
+}
+nav a {
+  margin-bottom: 15px;
+}
+
+main {
+  /*****GRID CONTAINER*****************/
+  padding: 20px;
+}
+main .section-heading {
+  padding-bottom: 20px;
+}
+main #social-stats-container .stats-widget {
+  /*****FLEX CONTAINER*****************/
+  height: 125px;
+  background-color: #eeeeee;
+  margin: 0 20px 20px 20px;
+}
+main #social-stats-container .stats-widget .social-stats-name {
+  font-size: 45px;
+}
+main #social-stats-container .stats-widget .social-stats-name h6 {
+  font-size: 20px;
+}
+main #members-container {
+  /*****GRID CONTAINERS*****************/
+}
+main #members-container .members {
+  padding: 10px;
+}
+main #members-container .members .member-img {
+  margin-right: 10px;
+}
+main #activity-container {
+  /*****GRID CONTAINERS*****************/
+}
+main #activity-container .member-activity {
+  padding: 10px;
+}
+main #activity-container .member-activity .member-img {
+  margin-right: 10px;
+}
+main #message-container .section-heading {
+  align-self: flex-start;
+}
+main #message-container input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 2px solid darkgray;
+  border-radius: 4px;
+  background-color: #eeeeee;
+  font-size: 16px;
+  height: 30px;
+}
+main #message-container textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 2px solid darkgray;
+  border-radius: 4px;
+  background-color: #eeeeee;
+  font-size: 16px;
+  resize: none;
+}
+main #message-container button {
+  width: 100%;
+  color: lightgray;
+  background-color: #2b3838;
+}
+main #settings-container * {
+  align-self: flex-start;
+}
+main #settings-container h4 {
+  display: inline-block;
+}
+main #settings-container .switch-light {
+  display: inline-block;
+  width: 100px;
+}
+main #settings-container span {
+  color: white;
+}
+main #settings-container .timezone-menu {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 2px solid darkgray;
+  border-radius: 4px;
+  background-color: #eeeeee;
+  font-size: 16px;
+  width: 100%;
+}
+main #settings-container div {
+  width: 100%;
+}
+main #settings-container .button-save {
+  background-color: #2b3838;
+  color: lightgray;
+  width: 48%;
+}
+main #settings-container .button-cancel {
+  background-color: #eeeeee;
+  width: 48%;
+}
+
+/********* HEADER STYLES *********/
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header #head-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/********* NAVIGATION STYLES *********/
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/********* MAIN CONTENT STYLES *********/
+.stats-widget {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#settings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/********* MEDIA QUERIES *********/
+@media (min-width: 768px) {
+  header {
+    flex-direction: row;
+  }
+  header #head-left {
+    float: left;
+  }
+  header #head-right {
+    float: right;
+    flex-direction: row;
+  }
+
+  nav {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+header {
+  grid-area: head;
+}
+
+nav {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+}
+
+#main-chart-container {
+  grid-area: mainChart;
+}
+
+#daily-chart-container {
+  grid-area: dailyChart;
+}
+
+#mobile-chart-container {
+  grid-area: mobileChart;
+}
+
+#social-stats-container {
+  grid-area: socialStats;
+}
+
+#members-container {
+  grid-area: members;
+}
+
+#recent-activity {
+  grid-area: recentActivity;
+}
+
+#message-container {
+  grid-area: messageContainer;
+}
+
+#settings-container {
+  grid-area: settingsContainer;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: minmax(auto-fit, 1fr);
+  grid-template-areas: "head" "nav" "main";
+}
+
+/********* MAIN CONTENT STYLES *********/
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 30px;
+  grid-template-areas: "mainChart" "dailyChart" "mobileChart" "socialStats" "members" "recentActivity" "messageContainer" "settingsContainer";
+}
+.main-content #members-container {
+  display: grid;
+}
+.main-content #members-container .members {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+}
+.main-content #activity-container {
+  display: grid;
+}
+.main-content #activity-container .member-activity {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+}
+
+/********* MEDIA QUERIES *********/
+@media (min-width: 768px) {
+  .grid-container {
+    height: 100vh;
+    grid-template-rows: 75px;
+    grid-template-columns: 75px 9fr;
+    grid-template-areas: "head head" "nav main";
+  }
+  .grid-container .main-content {
+    grid-template-rows: 1fr 1fr 0.5fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "mainChart mainChart" "dailyChart mobileChart" "socialStats socialStats" "members recentActivity" "messageContainer settingsContainer";
+  }
+  .grid-container .main-content #social-stats-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  .grid-container .main-content #social-stats-container h3 {
+    grid-column: 1/span 3;
+  }
+}
+svg {
+  width: 25px;
+}
+
+.icon-body {
+  stroke: lightgray;
+  fill: lightgray;
+  stroke-width: 0.3;
+}
+
+.stats-widget svg {
+  width: 75px;
+  height: 75px;
+}
+
+img {
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=styles.css.map */

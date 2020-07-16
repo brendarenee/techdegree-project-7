@@ -1,0 +1,29 @@
+
+
+@mixin flex-container ($dir) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: center;
+  @content;
+}
+
+@mixin text-input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 2px solid $text-med;
+  border-radius: 4px;
+  background-color: $text-area-light;
+  font-size: 16px;
+  @content;
+}
+
+%button-style {
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}

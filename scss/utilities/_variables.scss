@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
+
+$display-font: 'Poiret One', cursive;
+$main-font: 'Open Sans Condensed', sans-serif;
+
+$breakpoint-med: 768px;
+
+/*** BODY COLORS ***/
+
+$dark-main-color: rgb(43,56,56);
+$light-main-color: rgb(61,94,94);
+$accent-primary: rgb(91,7,105);
+$accent-primary-light: rgb(158,121,182);
+$accent-secondary: rgb(154,155,102);
+$accent-secondary-light: rgb(203,204,130);
+
+$button-inactive-color: rgb(153,153,153);
+$text-area-light: rgb(238,238,238);
+
+/*** FONT COLORS ***/
+
+$text-dark: rgb(51,51,51);
+$text-med: rgb(169,169,169);
+$text-light: rgb(211,211,211);

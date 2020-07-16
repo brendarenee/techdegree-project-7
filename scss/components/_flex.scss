@@ -1,0 +1,62 @@
+
+
+/********* HEADER STYLES *********/
+
+header {
+  @include flex-container(column);
+
+  & #head-right {
+    @include flex-container(column);
+  }
+}
+
+
+/********* NAVIGATION STYLES *********/
+
+nav {
+  @include flex-container (row);
+  justify-content: space-evenly;
+
+}
+
+/********* MAIN CONTENT STYLES *********/
+
+.stats-widget {
+  @include flex-container (row);
+  justify-content: space-around;
+}
+
+#message-container {
+  @include flex-container(column);
+  justify-content: space-between;
+}
+
+#settings-container {
+  @include flex-container(column);
+  justify-content: space-between;
+}
+
+
+/********* MEDIA QUERIES *********/
+
+@media (min-width: $breakpoint-med) {
+
+  header {
+    flex-direction: row;
+    & * {
+    }
+    & #head-left {
+      float: left;
+    }
+    & #head-right {
+      float: right;
+      flex-direction: row;
+    }
+  }
+
+  nav {
+    flex-direction: column;
+    justify-content: flex-start;
+
+  }
+}
