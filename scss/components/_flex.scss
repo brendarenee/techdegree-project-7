@@ -10,7 +10,6 @@ header {
   }
 }
 
-
 /********* NAVIGATION STYLES *********/
 
 nav {
@@ -19,23 +18,38 @@ nav {
 
 }
 
+.traffic-header {
+  & .section-heading {
+    display: inline-block;
+    float: left;
+  }
+}
+
+.traffic-chart-nav {
+  float: right;
+  & li {
+    display: inline-block;
+    }
+}
+
 /********* MAIN CONTENT STYLES *********/
 
-.stats-widget {
+.stats-widget,
+.icon-flex-container {
   @include flex-container (row);
   justify-content: space-around;
 }
 
-#message-container {
-  @include flex-container(column);
+.settings-buttons-container {
+  @include flex-container (row);
   justify-content: space-between;
 }
 
+#message-container,
 #settings-container {
   @include flex-container(column);
   justify-content: space-between;
 }
-
 
 /********* MEDIA QUERIES *********/
 

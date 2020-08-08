@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap");
 /*** BODY COLORS ***/
 /*** FONT COLORS ***/
-main #settings-container .button-cancel, main #settings-container .button-save, main #message-container button {
+.main-content #settings-container .button-cancel, .main-content #settings-container .button-save, .main-content #message-container button {
   height: 40px;
   border: none;
   border-radius: 4px;
@@ -21,29 +21,21 @@ main #settings-container .button-cancel, main #settings-container .button-save, 
 header {
   /*****FLEX CONTAINER*****************/
   padding: 10px;
+  padding-right: 15px;
   background-color: #3d5e5e;
 }
 header * {
   color: lightgray;
 }
-header #head-left h1 {
+header #head-left {
   font-family: "Poiret One", cursive;
-}
-header #head-right {
-  margin-left: auto;
-}
-header #head-right svg {
-  margin-right: 15px;
-}
-header #head-right img {
-  margin-right: 15px;
 }
 header #head-right h2 {
   font-weight: 300;
 }
 
 nav {
-  /*****FLEX CONTAINER*****************/
+  /***** flex *****/
   background-color: #2b3838;
   padding-top: 20px;
 }
@@ -51,47 +43,107 @@ nav a {
   margin-bottom: 15px;
 }
 
-main {
-  /*****GRID CONTAINER*****************/
-  padding: 20px;
+/***** MAIN HEADER STYLES *****************/
+.main-header {
+  padding-left: 20px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }
-main .section-heading {
+
+.headline {
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.main-header-search {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  background-color: #eeeeee;
+}
+.main-header-search input {
+  width: 50%;
+  padding: 8px;
+  border: 2px solid darkgray;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/***** ALERT STYLES *****************/
+.alert {
+  margin: 10px 15px 10px 0;
+  padding: 10px;
+  background-color: #3d5e5e;
+  font-size: 18px;
+}
+
+.alert-banner * {
+  color: lightgray;
+}
+
+.alert-banner p {
+  display: inline-block;
+}
+
+.alert-banner-close {
+  display: inline-block;
+  float: right;
+}
+
+/***** MAIN CONTENT STYLES *****************/
+.traffic-chart-nav li {
+  margin-right: 10px;
+  padding: 5px;
+  background-color: #2b3838;
+  border-radius: 10px;
+  color: lightgray;
+  width: 50px;
+  text-align: center;
+}
+
+.main-content {
+  /***** grid *****/
+  padding: 0 20px 20px 20px;
+}
+.main-content .section-heading {
   padding-bottom: 20px;
 }
-main #social-stats-container .stats-widget {
-  /*****FLEX CONTAINER*****************/
+.main-content #social-stats-container .stats-widget {
+  /***** flex *****/
   height: 125px;
   background-color: #eeeeee;
   margin: 0 20px 20px 20px;
 }
-main #social-stats-container .stats-widget .social-stats-name {
+.main-content #social-stats-container .stats-widget .social-stats-name {
   font-size: 45px;
 }
-main #social-stats-container .stats-widget .social-stats-name h6 {
+.main-content #social-stats-container .stats-widget .social-stats-name h6 {
   font-size: 20px;
 }
-main #members-container {
-  /*****GRID CONTAINERS*****************/
+.main-content #members-container {
+  /***** grid *****/
 }
-main #members-container .members {
+.main-content #members-container .members {
   padding: 10px;
 }
-main #members-container .members .member-img {
+.main-content #members-container .members .member-img {
   margin-right: 10px;
 }
-main #activity-container {
-  /*****GRID CONTAINERS*****************/
+.main-content #activity-container {
+  /***** grid *****/
 }
-main #activity-container .member-activity {
+.main-content #activity-container .member-activity {
   padding: 10px;
 }
-main #activity-container .member-activity .member-img {
+.main-content #activity-container .member-activity .member-img {
   margin-right: 10px;
 }
-main #message-container .section-heading {
+.main-content #message-container .section-heading {
   align-self: flex-start;
 }
-main #message-container input {
+.main-content #message-container input {
   width: 100%;
   margin-bottom: 10px;
   padding: 8px;
@@ -102,7 +154,7 @@ main #message-container input {
   font-size: 16px;
   height: 30px;
 }
-main #message-container textarea {
+.main-content #message-container textarea {
   width: 100%;
   margin-bottom: 10px;
   padding: 8px;
@@ -113,25 +165,31 @@ main #message-container textarea {
   font-size: 16px;
   resize: none;
 }
-main #message-container button {
+.main-content #message-container button {
   width: 100%;
   color: lightgray;
   background-color: #2b3838;
 }
-main #settings-container * {
+.main-content #settings-container * {
   align-self: flex-start;
 }
-main #settings-container h4 {
+.main-content #settings-container h4 {
   display: inline-block;
 }
-main #settings-container .switch-light {
+.main-content #settings-container .settings-switches {
+  margin-bottom: 15px;
+}
+.main-content #settings-container .settings-switches h4 {
+  margin-right: 15px;
+}
+.main-content #settings-container .switch-light {
   display: inline-block;
   width: 100px;
 }
-main #settings-container span {
+.main-content #settings-container span {
   color: white;
 }
-main #settings-container .timezone-menu {
+.main-content #settings-container .timezone-menu {
   width: 100%;
   margin-bottom: 10px;
   padding: 8px;
@@ -141,20 +199,32 @@ main #settings-container .timezone-menu {
   background-color: #eeeeee;
   font-size: 16px;
   width: 100%;
+  margin-bottom: 15px;
 }
-main #settings-container div {
+.main-content #settings-container div {
   width: 100%;
 }
-main #settings-container .button-save {
+.main-content #settings-container .button-save {
   background-color: #2b3838;
   color: lightgray;
   width: 48%;
 }
-main #settings-container .button-cancel {
+.main-content #settings-container .button-cancel {
   background-color: #eeeeee;
   width: 48%;
 }
 
+@media (min-width: 768px) {
+  #head-right {
+    margin-left: auto;
+  }
+  #head-right .alert-container {
+    margin-right: 15px;
+  }
+  #head-right img {
+    margin-right: 15px;
+  }
+}
 /********* HEADER STYLES *********/
 header {
   display: flex;
@@ -175,21 +245,35 @@ nav {
   justify-content: space-evenly;
 }
 
+.traffic-header .section-heading {
+  display: inline-block;
+  float: left;
+}
+
+.traffic-chart-nav {
+  float: right;
+}
+.traffic-chart-nav li {
+  display: inline-block;
+}
+
 /********* MAIN CONTENT STYLES *********/
-.stats-widget {
+.stats-widget,
+.icon-flex-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
 }
 
-#message-container {
+.settings-buttons-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
+#message-container,
 #settings-container {
   display: flex;
   flex-direction: column;
@@ -247,7 +331,7 @@ main {
   grid-area: members;
 }
 
-#recent-activity {
+#activity-container {
   grid-area: recentActivity;
 }
 
@@ -266,6 +350,15 @@ main {
 }
 
 /********* MAIN CONTENT STYLES *********/
+.main-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.alert {
+  grid-column: 1/3;
+}
+
 .main-content {
   display: grid;
   grid-template-columns: 1fr;
@@ -296,7 +389,7 @@ main {
     grid-template-areas: "head head" "nav main";
   }
   .grid-container .main-content {
-    grid-template-rows: 1fr 1fr 0.5fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0.5fr;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "mainChart mainChart" "dailyChart mobileChart" "socialStats socialStats" "members recentActivity" "messageContainer settingsContainer";
   }
@@ -316,12 +409,35 @@ svg {
 .icon-body {
   stroke: lightgray;
   fill: lightgray;
-  stroke-width: 0.3;
+  stroke-width: 0;
+  z-index: 100;
 }
 
-.stats-widget svg {
+.alert-container {
+  width: 30px;
+  height: 30px;
+}
+
+.alert-container:hover .icon-body {
+  transform: rotateY(45deg);
+}
+
+.icon-body {
+  transform-origin: center;
+  transition: transform 1s ease-out;
+}
+
+.stats-widget .social-stats-icon {
   width: 75px;
   height: 75px;
+  padding: 5px;
+  background-color: #2b3838;
+  border-radius: 50%;
+}
+.stats-widget svg {
+  width: 50px;
+  height: 50px;
+  background-color: #2b3838;
 }
 
 img {

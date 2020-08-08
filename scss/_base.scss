@@ -8,23 +8,15 @@
 header {
 /*****FLEX CONTAINER*****************/
   padding: 10px;
+  padding-right: 15px;
   background-color: $light-main-color;
   & * {
     color: $text-light;
   }
   & #head-left {
-    & h1 {
-      font-family: $display-font;
-    }
+    font-family: $display-font;
   }
   & #head-right {
-    margin-left: auto;
-    & svg {
-      margin-right: 15px;
-    }
-    & img {
-      margin-right: 15px;
-    }
     & h2 {
       font-weight: 300;
     }
@@ -32,7 +24,7 @@ header {
 }
 
 nav {
-/*****FLEX CONTAINER*****************/
+/***** flex *****/
   background-color: $dark-main-color;
   padding-top: 20px;
   & a {
@@ -40,16 +32,78 @@ nav {
   }
 }
 
-main {
-/*****GRID CONTAINER*****************/
-  padding: 20px;
+/***** MAIN HEADER STYLES *****************/
+
+.main-header {
+  padding-left: 20px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.headline {
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.main-header-search {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  background-color: $text-area-light;
+  & input {
+    width: 50%;
+    padding: 8px;
+    border: 2px solid $text-med;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+}
+
+/***** ALERT STYLES *****************/
+
+.alert {
+  margin: 10px 15px 10px 0;
+  padding: 10px;
+  background-color: $light-main-color;
+  font-size: 18px;
+}
+
+.alert-banner * {
+  color: $text-light;
+}
+.alert-banner p {
+  display: inline-block;
+}
+
+.alert-banner-close {
+  display: inline-block;
+  float: right;
+}
+
+/***** MAIN CONTENT STYLES *****************/
+
+.traffic-chart-nav li {
+  margin-right: 10px;
+  padding: 5px;
+  background-color: $dark-main-color;
+  border-radius: 10px;
+  color: $text-light;
+  width: 50px;
+  text-align: center;
+}
+
+.main-content {
+  /***** grid *****/
+  padding: 0 20px 20px 20px;
 
   & .section-heading {
     padding-bottom: 20px;
   }
   & #social-stats-container {
     & .stats-widget {
-      /*****FLEX CONTAINER*****************/
+      /***** flex *****/
       height: 125px;
       background-color: $text-area-light;
       margin: 0 20px 20px 20px;
@@ -63,7 +117,7 @@ main {
   }
 
   & #members-container {
-    /*****GRID CONTAINERS*****************/
+    /***** grid *****/
     & .members {
       padding: 10px;
       & .member-img {
@@ -73,7 +127,7 @@ main {
   }
 
   & #activity-container {
-    /*****GRID CONTAINERS*****************/
+    /***** grid *****/
     & .member-activity {
       padding: 10px;
       & .member-img {
@@ -110,7 +164,12 @@ main {
     & h4 {
       display: inline-block;
     }
-
+    & .settings-switches {
+      margin-bottom: 15px;
+      & h4 {
+        margin-right: 15px;
+      }
+    }
     & .switch-light {
       display: inline-block;
       width: 100px;
@@ -121,6 +180,7 @@ main {
     & .timezone-menu {
       @include text-input;
       width: 100%;
+      margin-bottom: 15px;
     }
     & div {
       width: 100%;
@@ -136,8 +196,17 @@ main {
       background-color: $text-area-light;
       width: 48%;
     }
-
-
   }
+}
 
+@media (min-width: $breakpoint-med) {
+  #head-right {
+    margin-left: auto;
+    & .alert-container {
+      margin-right: 15px;
+    }
+    & img {
+      margin-right: 15px;
+    }
+  }
 }

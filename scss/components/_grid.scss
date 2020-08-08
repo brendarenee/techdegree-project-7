@@ -30,7 +30,7 @@ main {
   grid-area: members;
 }
 
-#recent-activity {
+#activity-container {
   grid-area: recentActivity;
 }
 
@@ -53,6 +53,15 @@ main {
 }
 
 /********* MAIN CONTENT STYLES *********/
+
+.main-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.alert {
+  grid-column: 1 / 3;
+}
 
 .main-content {
   display: grid;
@@ -96,7 +105,7 @@ main {
       "head head"
       "nav main"
     ; & .main-content {
-      grid-template-rows: 1fr 1fr 0.5fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 0.5fr;
       grid-template-columns: 1fr 1fr;
       grid-template-areas:
       "mainChart mainChart"
