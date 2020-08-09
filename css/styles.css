@@ -2,13 +2,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap");
 /*** BODY COLORS ***/
 /*** FONT COLORS ***/
-.main-content #settings-container .button-cancel, .main-content #settings-container .button-save, .main-content #message-container button {
+#settings-container .timezone-menu, #message-container textarea, #message-container input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 2px solid darkgray;
+  border-radius: 4px;
+  background-color: #eeeeee;
+  font-size: 16px;
+}
+
+#settings-container .button-save, #settings-container .button-cancel, #message-container button {
   height: 40px;
   border: none;
   border-radius: 4px;
   font-size: 16px;
   text-transform: uppercase;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background-color: #2b3838;
+  color: lightgray;
 }
 
 * {
@@ -27,10 +40,12 @@ header {
 header * {
   color: lightgray;
 }
-header #head-left {
+
+#head-left {
   font-family: "Poiret One", cursive;
 }
-header #head-right h2 {
+
+#head-right h2 {
   font-weight: 300;
 }
 
@@ -51,30 +66,30 @@ nav a {
 }
 
 .headline {
-  padding-right: 20px;
   padding-top: 10px;
+  padding-right: 20px;
   padding-bottom: 10px;
 }
 
 .main-header-search {
   text-align: right;
   padding-top: 10px;
-  padding-bottom: 10px;
   padding-right: 15px;
+  padding-bottom: 10px;
   background-color: #eeeeee;
 }
 .main-header-search input {
+  padding: 3px;
   width: 50%;
-  padding: 8px;
   border: 2px solid darkgray;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /***** ALERT STYLES *****************/
 .alert {
-  margin: 10px 15px 10px 0;
   padding: 10px;
+  margin: 10px 15px 10px 0;
   background-color: #3d5e5e;
   font-size: 18px;
 }
@@ -82,20 +97,18 @@ nav a {
 .alert-banner * {
   color: lightgray;
 }
-
 .alert-banner p {
   display: inline-block;
 }
 
 .alert-banner-close {
-  display: inline-block;
   float: right;
 }
 
 /***** MAIN CONTENT STYLES *****************/
 .traffic-chart-nav li {
-  margin-right: 10px;
   padding: 5px;
+  margin-right: 10px;
   background-color: #2b3838;
   border-radius: 10px;
   color: lightgray;
@@ -110,110 +123,73 @@ nav a {
 .main-content .section-heading {
   padding-bottom: 20px;
 }
-.main-content #social-stats-container .stats-widget {
+
+#social-stats-container .stats-widget {
   /***** flex *****/
   height: 125px;
   background-color: #eeeeee;
   margin: 0 20px 20px 20px;
 }
-.main-content #social-stats-container .stats-widget .social-stats-name {
+#social-stats-container .stats-widget .social-stats-name {
   font-size: 45px;
 }
-.main-content #social-stats-container .stats-widget .social-stats-name h6 {
+#social-stats-container .stats-widget .social-stats-name h6 {
   font-size: 20px;
 }
-.main-content #members-container {
+
+#members-container {
   /***** grid *****/
 }
-.main-content #members-container .members {
+#members-container .members {
   padding: 10px;
 }
-.main-content #members-container .members .member-img {
+#members-container .members .member-img {
   margin-right: 10px;
-}
-.main-content #activity-container {
-  /***** grid *****/
-}
-.main-content #activity-container .member-activity {
-  padding: 10px;
-}
-.main-content #activity-container .member-activity .member-img {
-  margin-right: 10px;
-}
-.main-content #message-container .section-heading {
-  align-self: flex-start;
-}
-.main-content #message-container input {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 8px;
-  box-sizing: border-box;
-  border: 2px solid darkgray;
-  border-radius: 4px;
-  background-color: #eeeeee;
-  font-size: 16px;
-  height: 30px;
-}
-.main-content #message-container textarea {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 8px;
-  box-sizing: border-box;
-  border: 2px solid darkgray;
-  border-radius: 4px;
-  background-color: #eeeeee;
-  font-size: 16px;
-  resize: none;
-}
-.main-content #message-container button {
-  width: 100%;
-  color: lightgray;
-  background-color: #2b3838;
-}
-.main-content #settings-container * {
-  align-self: flex-start;
-}
-.main-content #settings-container h4 {
-  display: inline-block;
-}
-.main-content #settings-container .settings-switches {
-  margin-bottom: 15px;
-}
-.main-content #settings-container .settings-switches h4 {
-  margin-right: 15px;
-}
-.main-content #settings-container .switch-light {
-  display: inline-block;
-  width: 100px;
-}
-.main-content #settings-container span {
-  color: white;
-}
-.main-content #settings-container .timezone-menu {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 8px;
-  box-sizing: border-box;
-  border: 2px solid darkgray;
-  border-radius: 4px;
-  background-color: #eeeeee;
-  font-size: 16px;
-  width: 100%;
-  margin-bottom: 15px;
-}
-.main-content #settings-container div {
-  width: 100%;
-}
-.main-content #settings-container .button-save {
-  background-color: #2b3838;
-  color: lightgray;
-  width: 48%;
-}
-.main-content #settings-container .button-cancel {
-  background-color: #eeeeee;
-  width: 48%;
 }
 
+#activity-container {
+  /***** grid *****/
+}
+#activity-container .member-activity {
+  padding: 10px;
+}
+#activity-container .member-activity .member-img {
+  margin-right: 10px;
+}
+
+#message-container {
+  /***** flex *****/
+}
+#message-container input {
+  height: 30px;
+}
+#message-container textarea {
+  resize: none;
+}
+#message-container button {
+  width: 100%;
+}
+
+#settings-container {
+  /***** flex *****/
+}
+#settings-container span {
+  color: white;
+}
+#settings-container .switch-light,
+#settings-container .settings-buttons-container,
+#settings-container .timezone-menu {
+  width: 100%;
+}
+#settings-container .button-save, #settings-container .button-cancel {
+  width: 48%;
+}
+#settings-container .button-cancel {
+  background-color: #eeeeee;
+  color: inherit;
+}
+
+/***** MEDIA QUERIES *****************/
 @media (min-width: 768px) {
   #head-right {
     margin-left: auto;
@@ -279,6 +255,10 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+#message-container *,
+#settings-container * {
+  align-self: flex-start;
 }
 
 /********* MEDIA QUERIES *********/
@@ -365,19 +345,27 @@ main {
   grid-gap: 30px;
   grid-template-areas: "mainChart" "dailyChart" "mobileChart" "socialStats" "members" "recentActivity" "messageContainer" "settingsContainer";
 }
-.main-content #members-container {
+
+#members-container {
   display: grid;
 }
-.main-content #members-container .members {
+#members-container .members {
   display: grid;
   grid-template-columns: auto 1fr auto;
 }
-.main-content #activity-container {
+
+#activity-container {
   display: grid;
 }
-.main-content #activity-container .member-activity {
+#activity-container .member-activity {
   display: grid;
   grid-template-columns: auto 1fr auto;
+}
+
+.settings-switches {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 20px;
 }
 
 /********* MEDIA QUERIES *********/
@@ -388,17 +376,19 @@ main {
     grid-template-columns: 75px 9fr;
     grid-template-areas: "head head" "nav main";
   }
-  .grid-container .main-content {
+
+  .main-content {
     grid-template-rows: 1fr 1fr 0.5fr;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "mainChart mainChart" "dailyChart mobileChart" "socialStats socialStats" "members recentActivity" "messageContainer settingsContainer";
   }
-  .grid-container .main-content #social-stats-container {
+
+  #social-stats-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
   }
-  .grid-container .main-content #social-stats-container h3 {
+  #social-stats-container h3 {
     grid-column: 1/span 3;
   }
 }

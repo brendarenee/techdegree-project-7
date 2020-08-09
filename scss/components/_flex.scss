@@ -19,7 +19,7 @@ nav {
 }
 
 .traffic-header {
-  & .section-heading {
+  .section-heading {
     display: inline-block;
     float: left;
   }
@@ -27,7 +27,7 @@ nav {
 
 .traffic-chart-nav {
   float: right;
-  & li {
+  li {
     display: inline-block;
     }
 }
@@ -49,6 +49,9 @@ nav {
 #settings-container {
   @include flex-container(column);
   justify-content: space-between;
+  * {
+    align-self: flex-start;
+  }
 }
 
 /********* MEDIA QUERIES *********/

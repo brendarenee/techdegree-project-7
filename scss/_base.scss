@@ -7,27 +7,31 @@
 
 header {
 /*****FLEX CONTAINER*****************/
-  padding: 10px;
-  padding-right: 15px;
+  @include padding (
+    $all: 10px,
+    $right: 15px
+  );
   background-color: $light-main-color;
-  & * {
+  * {
     color: $text-light;
   }
-  & #head-left {
-    font-family: $display-font;
-  }
-  & #head-right {
-    & h2 {
-      font-weight: 300;
-    }
+}
+
+#head-left {
+  font-family: $display-font;
+}
+
+#head-right {
+  & h2 {
+    font-weight: 300;
   }
 }
 
 nav {
 /***** flex *****/
   background-color: $dark-main-color;
-  padding-top: 20px;
-  & a {
+  @include padding ($top: 20px);
+  a {
     margin-bottom: 15px;
   }
 }
@@ -35,58 +39,63 @@ nav {
 /***** MAIN HEADER STYLES *****************/
 
 .main-header {
-  padding-left: 20px;
+  @include padding ($left: 20px);
   margin-bottom: 10px;
   box-sizing: border-box;
 }
 
 .headline {
-  padding-right: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  @include padding (
+    $top: 10px,
+    $right: 20px,
+    $bott: 10px
+  );
 }
 
 .main-header-search {
   text-align: right;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 15px;
+  @include padding (
+    $top: 10px,
+    $right: 15px,
+    $bott: 10px
+  );
   background-color: $text-area-light;
-  & input {
+  input {
+    @include padding ($all: 3px);
     width: 50%;
-    padding: 8px;
     border: 2px solid $text-med;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
 /***** ALERT STYLES *****************/
 
 .alert {
+  @include padding ($all: 10px);
   margin: 10px 15px 10px 0;
-  padding: 10px;
   background-color: $light-main-color;
   font-size: 18px;
 }
 
-.alert-banner * {
-  color: $text-light;
-}
-.alert-banner p {
-  display: inline-block;
+.alert-banner {
+  * {
+    color: $text-light;
+  }
+  p {
+    display: inline-block;
+  }
 }
 
 .alert-banner-close {
-  display: inline-block;
   float: right;
 }
 
 /***** MAIN CONTENT STYLES *****************/
 
 .traffic-chart-nav li {
+  @include padding ($all: 5px);
   margin-right: 10px;
-  padding: 5px;
   background-color: $dark-main-color;
   border-radius: 10px;
   color: $text-light;
@@ -95,117 +104,96 @@ nav {
 }
 
 .main-content {
-  /***** grid *****/
-  padding: 0 20px 20px 20px;
-
-  & .section-heading {
-    padding-bottom: 20px;
+/***** grid *****/
+  @include padding ($all: 0 20px 20px 20px);
+  .section-heading {
+    @include padding ($bott: 20px);
   }
-  & #social-stats-container {
-    & .stats-widget {
-      /***** flex *****/
-      height: 125px;
-      background-color: $text-area-light;
-      margin: 0 20px 20px 20px;
-      & .social-stats-name {
-        font-size: 45px;
-        & h6 {
-          font-size: 20px;
-        }
+}
+
+#social-stats-container {
+  .stats-widget {
+    /***** flex *****/
+    height: 125px;
+    background-color: $text-area-light;
+    margin: 0 20px 20px 20px;
+    .social-stats-name {
+      font-size: 45px;
+      h6 {
+        font-size: 20px;
       }
-    }
-  }
-
-  & #members-container {
-    /***** grid *****/
-    & .members {
-      padding: 10px;
-      & .member-img {
-        margin-right: 10px;
-      }
-    }
-  }
-
-  & #activity-container {
-    /***** grid *****/
-    & .member-activity {
-      padding: 10px;
-      & .member-img {
-        margin-right: 10px;
-      }
-    }
-  }
-
-  & #message-container {
-
-    & .section-heading {
-      align-self: flex-start;
-    }
-    & input {
-      @include text-input;
-      height: 30px;
-    }
-    & textarea {
-      @include text-input;
-      resize: none;
-    }
-    & button {
-      @extend %button-style;
-      width: 100%;
-      color: $text-light;
-      background-color: $dark-main-color;
-    }
-  }
-
-  & #settings-container {
-    & * {
-      align-self: flex-start;
-    }
-    & h4 {
-      display: inline-block;
-    }
-    & .settings-switches {
-      margin-bottom: 15px;
-      & h4 {
-        margin-right: 15px;
-      }
-    }
-    & .switch-light {
-      display: inline-block;
-      width: 100px;
-    }
-    & span {
-      color: white;
-    }
-    & .timezone-menu {
-      @include text-input;
-      width: 100%;
-      margin-bottom: 15px;
-    }
-    & div {
-      width: 100%;
-    }
-    & .button-save {
-      @extend %button-style;
-      background-color: $dark-main-color;
-      color: $text-light;
-      width: 48%;
-    }
-    & .button-cancel {
-      @extend %button-style;
-      background-color: $text-area-light;
-      width: 48%;
     }
   }
 }
 
+#members-container {
+/***** grid *****/
+  .members {
+    @include padding ($all: 10px);
+    .member-img {
+      margin-right: 10px;
+    }
+  }
+}
+
+#activity-container {
+/***** grid *****/
+  .member-activity {
+    @include padding ($all: 10px);
+    .member-img {
+      margin-right: 10px;
+    }
+  }
+}
+
+#message-container {
+/***** flex *****/
+  input {
+    @extend %text-input;
+    height: 30px;
+  }
+  textarea {
+    @extend %text-input;
+    resize: none;
+  }
+  button {
+    @extend %button-style;
+    width: 100%;
+  }
+}
+
+#settings-container {
+/***** flex *****/
+  span {
+    color: white;
+  }
+  .timezone-menu {
+    @extend %text-input;
+  }
+  .switch-light,
+  .settings-buttons-container,
+  .timezone-menu {
+    width: 100%;
+  }
+  .button-save, .button-cancel {
+    @extend %button-style;
+    width: 48%;
+  }
+  .button-cancel {
+    background-color: $text-area-light;
+    color: inherit;
+  }
+}
+
+/***** MEDIA QUERIES *****************/
+
 @media (min-width: $breakpoint-med) {
   #head-right {
     margin-left: auto;
-    & .alert-container {
+    .alert-container {
       margin-right: 15px;
     }
-    & img {
+    img {
       margin-right: 15px;
     }
   }

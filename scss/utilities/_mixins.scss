@@ -7,7 +7,35 @@
   @content;
 }
 
-@mixin text-input {
+@mixin grid-container (
+  $disp: grid,
+  $rows: null,
+  $columns: null,
+  $gap: null,
+) {
+  display: $disp;
+  grid-template-rows: $rows;
+  grid-template-columns: $columns;
+  grid-gap: $gap;
+  @content;
+}
+
+@mixin padding (
+  $all: null,
+  $top: null,
+  $right: null,
+  $bott: null,
+  $left: null,
+) {
+  padding: $all;
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bott;
+  padding-left: $left;
+}
+
+
+%text-input {
   width: 100%;
   margin-bottom: 10px;
   padding: 8px;
@@ -16,7 +44,6 @@
   border-radius: 4px;
   background-color: $text-area-light;
   font-size: 16px;
-  @content;
 }
 
 %button-style {
@@ -26,4 +53,6 @@
   font-size: 16px;
   text-transform: uppercase;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background-color: $dark-main-color;
+  color: $text-light;
 }
