@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: $main-font;
   color: $text-dark;
 }
@@ -41,7 +42,6 @@ nav {
 .main-header {
   @include padding ($left: 20px);
   margin-bottom: 10px;
-  box-sizing: border-box;
 }
 
 .headline {
@@ -167,13 +167,16 @@ nav {
   span {
     color: white;
   }
-  .timezone-menu {
-    @extend %text-input;
-  }
   .switch-light,
   .settings-buttons-container,
   .timezone-menu {
     width: 100%;
+  }
+  .settings-switches {
+    margin-bottom: 10px;
+  }
+  .timezone-menu {
+    @extend %text-input;
   }
   .button-save, .button-cancel {
     @extend %button-style;

@@ -27,6 +27,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: "Open Sans Condensed", sans-serif;
   color: #333333;
 }
@@ -62,7 +63,6 @@ nav a {
 .main-header {
   padding-left: 20px;
   margin-bottom: 10px;
-  box-sizing: border-box;
 }
 
 .headline {
@@ -180,6 +180,9 @@ nav a {
 #settings-container .settings-buttons-container,
 #settings-container .timezone-menu {
   width: 100%;
+}
+#settings-container .settings-switches {
+  margin-bottom: 10px;
 }
 #settings-container .button-save, #settings-container .button-cancel {
   width: 48%;
