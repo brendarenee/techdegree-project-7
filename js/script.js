@@ -28,10 +28,28 @@ sendMessage.addEventListener('click', () => {
 
 })
 
-
 // Insert charts
 
 Chart.defaults.global.defaultFontFamily = '\'Open Sans Condensed\', sans-serif';
+
+// Media Query Function for Main Chart
+
+const mqMd = window.matchMedia('(min-width: 768px)');
+const mqLg = window.matchMedia('(min-width: 1024px)');
+let chartSize = 0;
+console.log(mqLg.matches);
+
+function checkScreenSize () {
+  if (mqLg.matches) {
+    chartSize = 4;
+  } else if (mqMd.matches) {
+    chartSize = 3;
+  } else {
+    chartSize = 2;
+  }
+}
+
+checkScreenSize();
 
 var ctx = document.getElementById('myWeeklyTrafficChart');
   var myMainChart = new Chart(ctx, {
@@ -39,23 +57,23 @@ var ctx = document.getElementById('myWeeklyTrafficChart');
     data: {
       labels: ['1-7','8-14','15-21','22-28','29-4','5-11','12-18','19-25','26-2','3-9','10-16','17-23'],
       datasets: [{
-        label: '# of visitors',
         data: [1000,1112,2033,2507,1723,1581,2018,2374,1887,2005,2139,2487],
         borderColor: 'rgba(0,0,0)',
-        borderWidth: 3,
-        backgroundColor: 'rgba(61,94,94,0.4)',
+        borderWidth: 2,
+        backgroundColor: 'rgba(70,107,91,0.4)',
       }]
     },
     options: {
       legend: {
-        display: true,
-        align: 'end',
+        display: false
       },
-      aspectRatio: 3,
+      aspectRatio: chartSize,
       responsive: true,
       maintainAspectRatio: true,
     }
   });
+
+console.log(myMainChart.options.aspectRatio);
 
   // var ctx = document.getElementById('myMonthlyTrafficChart');
   //   var myMonthlyTrafficChart = new Chart(ctx, {
@@ -90,33 +108,39 @@ var ctx = document.getElementById('myDailyChart');
       data: {
         labels: ['M','T','W','TH','F','SA','SU'],
         datasets: [{
-          label: 'Daily Traffic',
           data: [150,203,117,160,316,259,350],
           borderColor: 'rgba(0,0,0)',
-          backgroundColor: 'rgb(43,56,56)',
+          backgroundColor: 'rgb(70,107,91)',
         }]
       },
       options: {
         responsive: true,
         maintainAspectRatio: true,
+        legend: {
+          display: false,
+        }
       }
     });
 
-      var ctx = document.getElementById('myMobileChart');
-      var myMobileChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-          labels: ['Desktop','Tablets','Phones'],
-          datasets: [{
-            label: 'Mobile Users',
-            data: [80,20,200],
-            borderColor: 'rgba(0,0,0)',
-            backgroundColor:
-              ['rgb(91,7,105)','rgb(154,155,102)','rgb(43,56,56)']
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: true,
-        }
-      });
+var ctx = document.getElementById('myMobileChart');
+var myMobileChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Desktop','Tablets','Phones'],
+    datasets: [{
+      label: 'Mobile Users',
+      data: [80,20,200],
+      borderColor: 'rgba(0,0,0)',
+      borderWidth: 0,
+      borderAlign: 'inner',
+      backgroundColor:
+        ['rgb(112,94,140)','rgb(255,246,142)','rgb(70,107,91)']
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+  }
+});
+
+// Media query for chart settings

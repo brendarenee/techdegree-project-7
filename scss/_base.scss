@@ -10,7 +10,6 @@ header {
 /*****FLEX CONTAINER*****************/
   @include padding (
     $all: 10px,
-    $right: 15px
   );
   background-color: $light-main-color;
   * {
@@ -40,16 +39,11 @@ nav {
 /***** MAIN HEADER STYLES *****************/
 
 .main-header {
-  @include padding ($left: 20px);
   margin-bottom: 10px;
 }
 
 .headline {
-  @include padding (
-    $top: 10px,
-    $right: 20px,
-    $bott: 10px
-  );
+  @include padding ($all: 10px 20px);
 }
 
 .main-header-search {
@@ -72,8 +66,8 @@ nav {
 /***** ALERT STYLES *****************/
 
 .alert {
-  @include padding ($all: 10px);
-  margin: 10px 15px 10px 0;
+  @include padding ($all: 8px);
+  margin: 10px 0px;
   background-color: $light-main-color;
   font-size: 18px;
 }
@@ -94,34 +88,51 @@ nav {
 /***** MAIN CONTENT STYLES *****************/
 
 .traffic-chart-nav li {
-  @include padding ($all: 5px);
-  margin-right: 10px;
+  @include padding ($all: 2px);
+  margin-right: 3px;
   background-color: $dark-main-color;
-  border-radius: 10px;
+  border-radius: 5px;
   color: $text-light;
   width: 50px;
   text-align: center;
 }
 
-.main-content {
-/***** grid *****/
-  @include padding ($all: 0 20px 20px 20px);
-  .section-heading {
-    @include padding ($bott: 20px);
-  }
+.section-heading {
+  @include padding ($bott: 20px);
 }
 
-#social-stats-container {
-  .stats-widget {
-    /***** flex *****/
-    height: 125px;
-    background-color: $text-area-light;
-    margin: 0 20px 20px 20px;
-    .social-stats-name {
-      font-size: 45px;
-      h6 {
-        font-size: 20px;
-      }
+//////// Set internal borders ///////////
+
+.chart-container,
+#social-stats-container,
+#members-container,
+#activity-container,
+#message-container,
+#settings-container
+ {
+  border-bottom: 0px solid $text-light;
+  @include padding ($all: 20px);
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5);
+}
+
+#settings-container {
+  border: none;
+  box-shadow: none;
+}
+
+/***** CONTAINER STYLES *****/
+
+.stats-widget {
+/***** flex *****/
+  height: 125px;
+  background-color: $text-area-light;
+  border: 1px solid $text-med;
+  border-radius: 5px;
+  margin: 0 20px 20px 20px;
+  .social-stats-name {
+    font-size: 45px;
+    h6 {
+      font-size: 20px;
     }
   }
 }
@@ -191,13 +202,36 @@ nav {
 /***** MEDIA QUERIES *****************/
 
 @media (min-width: $breakpoint-med) {
+
   #head-right {
     margin-left: auto;
-    .alert-container {
+    .bell-container {
       margin-right: 15px;
     }
     img {
       margin-right: 15px;
     }
+  }
+
+  .alert {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .traffic-chart-nav li {
+    @include padding ($all: 5px);
+    margin-right: 10px;
+    border-radius: 10px;
+    width: 65px;
+  }
+
+  #daily-chart-container,
+  #members-container,
+  #message-container, {
+    box-shadow: 8px 8px 6px -6px rgba(0, 0, 0, 0.5);
+  }
+
+  #message-container {
+    border-bottom: none;
   }
 }

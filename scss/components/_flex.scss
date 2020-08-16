@@ -4,11 +4,13 @@
 
 header {
   @include flex-container(column);
-
-  & #head-right {
+}
+.bell-container {
+  @include flex-container(column);
+}
+#head-right {
     @include flex-container(column);
   }
-}
 
 /********* NAVIGATION STYLES *********/
 
@@ -61,6 +63,7 @@ nav {
   header {
     flex-direction: row;
     & * {
+      align-items: center;
     }
     & #head-left {
       float: left;
