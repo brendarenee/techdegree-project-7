@@ -90,16 +90,32 @@ main {
 }
 
 .settings-switches {
-  @include grid-container (
-    $columns: auto 1fr,
-    $gap: 20px
-  );
+  // @include grid-container (
+  //   $rows: 1fr,
+  //   $gap: 20px
+  // );
+  .columns {
+    float: left;
+    width: 40%;
+  }
 }
 
 
 /********* MEDIA QUERIES *********/
 
 @media (min-width: $breakpoint-med) {
+  #social-stats-container {
+    @include grid-container (
+      $columns: 1fr 1fr 1fr,
+      $rows: auto auto
+    );
+    h3 {
+      grid-column: 1 / span 3;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
   .grid-container {
     height: 100vh;
     @include grid-container (
@@ -125,15 +141,5 @@ main {
     "members recentActivity"
     "messageContainer settingsContainer"
     ;
-  }
-
-  #social-stats-container {
-    @include grid-container (
-      $columns: 1fr 1fr 1fr,
-      $rows: auto auto
-    );
-    h3 {
-      grid-column: 1 / span 3;
-    }
   }
 }

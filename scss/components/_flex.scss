@@ -75,6 +75,17 @@ nav {
   }
 
   nav {
+    justify-content: space-between;
+    @include padding (
+      $right: 10px,
+      $left: 10px
+    );
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+
+  nav {
     flex-direction: column;
     justify-content: flex-start;
 

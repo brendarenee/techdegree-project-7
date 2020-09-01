@@ -12,6 +12,47 @@ alertBanner.addEventListener('click', e => {
   }
 })
 
+// Click event listener for Alert Notification
+
+const alertDropdown = document.getElementById("alert-dropdown");
+const alertIcon = document.querySelector(".bell-alert");
+const alertBell = document.querySelector(".bell-container");
+
+alertDropdown.innerHTML = '<ul class="alert-menu"><li>Alert 1<p class="alert-item-close">X</p></li><li>Alert 2<p class="alert-item-close">X</p></li></ul>';
+
+alertBell.addEventListener('click', e => {
+  const element = e.target;
+  if (element.classList.contains("bell-svg")) {
+    alertDropdown.style.display = "inline-block";
+    alertIcon.style.visibility = "hidden";
+  } else if (element.classList.contains("alert-item-close")) {
+    element.parentNode.style.display = "none";
+  }
+});
+
+// Add autocomplete to user search bar
+
+$( function() {
+  var availableNames = [
+    'Georgia Ford',
+    'Paula McCargo',
+    'John Lemon',
+    'Ringo Farr',
+    'Betty Light',
+    'Anthony Shopkins',
+    'Chris Cornelius',
+    'Brad Litt'
+  ];
+  $( "#input-user" ).autocomplete({
+    minLength: 0,
+    source: availableNames,
+    select: function (e) {
+      $( "#input-user").val();
+      return false;
+    }
+  });
+});
+
 // User message 'SEND' button event addEventListener
 
 const sendMessage = document.getElementById("send-message-btn");
@@ -51,17 +92,67 @@ function checkScreenSize () {
 
 checkScreenSize();
 
-var ctx = document.getElementById('myWeeklyTrafficChart');
+// click event for traffic chart
+
+
+
+const trafficNav = document.querySelector(".traffic-chart-nav");
+const trafficNavList = trafficNav.children;
+
+trafficNavList[2].classList.add("selected");
+
+
+function navSelect (e) {
+  for (i=0; i<trafficNavList.length; i++) {
+    if (trafficNavList[i].innerHTML === e.innerHTML) {
+      trafficNavList[i].classList.add("selected");
+    } else {
+      trafficNavList[i].classList.remove("selected");
+    }
+  }
+}
+
+function updateChart (li, chart) {
+  if (li.innerHTML === "Monthly") {
+    chart.data.labels.splice(0,12,'Sept','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug');
+    chart.data.datasets[0].data.splice(0,12,6221,6330,6499,6822,7011,6523,6775,6901,7375,7500,7860,6631);
+    chart.update();
+  } else if (li.innerHTML === "Daily") {
+    chart.data.labels.splice(0,12,'W','TH','F','SA','SU','M','TU','W','TH','F','SA','SU');
+    chart.data.datasets[0].data.splice(0,12,177,200,183,141,135,150,203,117,160,316,259,350);
+    chart.update();
+  } else if (li.innerHTML === "Weekly") {
+    chart.data.labels.splice(0,12,'1-7','8-14','15-21','22-28','29-4','5-11','12-18','19-25','26-2','3-9','10-16','17-23');
+    chart.data.datasets[0].data.splice(0,12,1000,1112,2033,2507,1723,1581,2018,2374,1887,2005,2139,2487);
+    chart.update();
+  } else if (li.innerHTML === "Hourly") {
+    chart.data.labels.splice(0,12,'6a','7a','8a','9a','10a','11a','12p','1p','2p','3p','4p','5p');
+    chart.data.datasets[0].data.splice(0,12,10,15,37,43,25,20,17,31,44,45,31,27);
+    chart.update();
+  }
+}
+
+trafficNav.addEventListener('click', e => {
+  const element = e.target;
+  navSelect(element);
+  updateChart(element, myMainChart);
+});
+
+
+
+// create traffic chart
+
+var ctx = document.getElementById('myTrafficChart');
   var myMainChart = new Chart(ctx, {
     type: 'line',
-    data: {
+    data:  {
       labels: ['1-7','8-14','15-21','22-28','29-4','5-11','12-18','19-25','26-2','3-9','10-16','17-23'],
       datasets: [{
         data: [1000,1112,2033,2507,1723,1581,2018,2374,1887,2005,2139,2487],
         borderColor: 'rgba(0,0,0)',
         borderWidth: 2,
         backgroundColor: 'rgba(70,107,91,0.4)',
-      }]
+      }],
     },
     options: {
       legend: {
@@ -70,37 +161,13 @@ var ctx = document.getElementById('myWeeklyTrafficChart');
       aspectRatio: chartSize,
       responsive: true,
       maintainAspectRatio: true,
-    }
+      animation: {
+        duration: 0
+      },
+    },
   });
 
-console.log(myMainChart.options.aspectRatio);
-
-  // var ctx = document.getElementById('myMonthlyTrafficChart');
-  //   var myMonthlyTrafficChart = new Chart(ctx, {
-  //     type: 'line',
-  //     data: {
-  //       labels: ['Aug','Sept','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun','Jul'],
-  //       datasets: [{
-  //         label: '# of visitors',
-  //         data: [1000,1112,2033,2507,1723,1581,2018,2374,1887,2005,2139,2487],
-  //         borderColor: 'rgba(0,0,0)',
-  //         borderWidth: 3,
-  //         backgroundColor: 'rgba(61,94,94,0.4)',
-  //       }]
-  //     },
-  //     options: {
-  //       title: {
-  //         display: true,
-  //         text: 'TRAFFIC',
-  //       },
-  //       legend: {
-  //         display: false,
-  //       },
-  //       aspectRatio: 3,
-  //       responsive: true,
-  //       maintainAspectRatio: true,
-  //     }
-  //   });
+// daily chart
 
 var ctx = document.getElementById('myDailyChart');
     var myDailyChart = new Chart(ctx, {
@@ -121,6 +188,8 @@ var ctx = document.getElementById('myDailyChart');
         }
       }
     });
+
+// mobile chart
 
 var ctx = document.getElementById('myMobileChart');
 var myMobileChart = new Chart(ctx, {
@@ -143,4 +212,19 @@ var myMobileChart = new Chart(ctx, {
   }
 });
 
-// Media query for chart settings
+
+// Local Storage for SETTINGS
+
+  var settingsEmail = document.getElementById('email-settings');
+  var settingsProfile = document.getElementById('profile-settings');
+  var settingsTimeZone = document.querySelector('.timezone-menu');
+  var saveButton = document.querySelector('.button-save');
+  var cancelButton = document.querySelector('.button-cancel');
+
+  saveButton.addEventListener('click', function(e) {
+    if (settingsEmail.firstElementChild.hasAttribute('checked')) {
+      console.log('yes');
+    } else {
+      console.log('no');
+    };
+  });

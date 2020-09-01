@@ -65,6 +65,31 @@ nav {
 
 /***** ALERT STYLES *****************/
 
+#alert-dropdown {
+  position: relative;
+  display: none;
+}
+
+.alert-menu {
+  list-style-type: none;
+  position: absolute;
+  left: -150px;
+  width: 300px;
+
+  li {
+    display: inline-block;
+    @include padding ($all: 5px);
+    margin: 5px;
+    background-color: transparentize($text-light, 0.2);
+    color: $text-dark;
+    width: 300px;
+  }
+  p {
+    float: right;
+    color: $text-dark;
+  }
+}
+
 .alert {
   @include padding ($all: 8px);
   margin: 10px 0px;
@@ -90,11 +115,14 @@ nav {
 .traffic-chart-nav li {
   @include padding ($all: 2px);
   margin-right: 3px;
+  width: 50px;
+  text-align: center;
+}
+
+.selected {
   background-color: $dark-main-color;
   border-radius: 5px;
   color: $text-light;
-  width: 50px;
-  text-align: center;
 }
 
 .section-heading {
@@ -102,6 +130,10 @@ nav {
 }
 
 //////// Set internal borders ///////////
+
+canvas {
+  max-width: 100vh;
+}
 
 .chart-container,
 #social-stats-container,
@@ -173,36 +205,77 @@ nav {
   }
 }
 
+.ui-autocomplete {
+  list-style-type: none;
+  background-color: white;
+  width: 100px;
+}
+
+.ui-widget-content {
+  background: $text-light;
+  border: 1px solid $text-med;
+
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
+}
+
+
 #settings-container {
 /***** flex *****/
   span {
     color: white;
   }
-  .switch-light,
-  .settings-buttons-container,
-  .timezone-menu {
-    width: 100%;
+}
+
+.switch-light,
+.settings-buttons-container,
+.timezone-menu {
+  width: 100%;
+}
+
+.settings-switches {
+  width: 100%;
+  label {
+    margin-bottom: 20px;
   }
-  .settings-switches {
-    margin-bottom: 10px;
-  }
-  .timezone-menu {
-    @extend %text-input;
-  }
-  .button-save, .button-cancel {
-    @extend %button-style;
-    width: 48%;
-  }
-  .button-cancel {
-    background-color: $text-area-light;
-    color: inherit;
-  }
+}
+
+.switch-material.switch-light input:checked ~ span a {
+  background: $accent-primary;
+}
+
+.switch-material.switch-light input:checked ~ span {
+  background: transparentize($accent-primary, 0.5);
+}
+
+.timezone-menu {
+  @extend %text-input;
+  margin-bottom: 20px;
+}
+
+.button-save, .button-cancel {
+  @extend %button-style;
+  width: 48%;
+}
+
+.button-cancel {
+  background-color: $text-area-light;
+  color: inherit;
 }
 
 /***** MEDIA QUERIES *****************/
 
 @media (min-width: $breakpoint-med) {
-
+  .chart-container,
+  #social-stats-container,
+  #members-container,
+  #activity-container,
+  #message-container,
+  #settings-container {
+    @include padding ($all: 30px);
+  }
   #head-right {
     margin-left: auto;
     .bell-container {
@@ -217,6 +290,9 @@ nav {
     margin-left: 15px;
     margin-right: 15px;
   }
+}
+
+@media (min-width: $breakpoint-lg) {
 
   .traffic-chart-nav li {
     @include padding ($all: 5px);

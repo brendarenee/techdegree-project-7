@@ -10,19 +10,23 @@ svg {
 
 .bell-container {
   box-sizing: border-box;
+}
+
+.bell-svg {
   width:40px;
   height: 40px;
   text-align: center;
   padding-top: 5px;
+  padding-bottom: 10px;
 }
 
-.alert-container:hover .icon-body {
-  transform: rotateY(45deg);
-}
-
-.icon-body {
+.bell-icon {
   transform-origin: center;
-  transition: transform 1s ease-out;
+  transition: transform .5s ease-out;
+}
+
+.bell-svg:hover .bell-icon {
+  transform: rotate(-45deg);
 }
 
 .stats-widget {
@@ -34,5 +38,11 @@ svg {
   svg {
   width: 100px;
   height: 100px;
+  }
+}
+
+@media (min-width: $breakpoint-med) {
+  svg {
+    width: 30px;
   }
 }
