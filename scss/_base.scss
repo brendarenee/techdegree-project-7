@@ -78,7 +78,7 @@ nav {
 
   li {
     display: inline-block;
-    @include padding ($all: 5px);
+    @include padding ($all: 8px);
     margin: 5px;
     background-color: transparentize($text-light, 0.2);
     color: $text-dark;
@@ -130,10 +130,6 @@ nav {
 }
 
 //////// Set internal borders ///////////
-
-canvas {
-  max-width: 100vh;
-}
 
 .chart-container,
 #social-stats-container,
@@ -263,6 +259,10 @@ canvas {
 .button-cancel {
   background-color: $text-area-light;
   color: inherit;
+}
+
+.button-cancel:hover {
+  background-color: darken($text-area-light, 10);
 }
 
 /***** MEDIA QUERIES *****************/

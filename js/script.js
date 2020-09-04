@@ -18,7 +18,7 @@ const alertDropdown = document.getElementById("alert-dropdown");
 const alertIcon = document.querySelector(".bell-alert");
 const alertBell = document.querySelector(".bell-container");
 
-alertDropdown.innerHTML = '<ul class="alert-menu"><li>Alert 1<p class="alert-item-close">X</p></li><li>Alert 2<p class="alert-item-close">X</p></li></ul>';
+alertDropdown.innerHTML = '<ul class="alert-menu"><li>You have a new message from Betty Light.<p class="alert-item-close">X</p></li><li>Georgia Ford commented on a recent post.<p class="alert-item-close">X</p></li></ul>';
 
 alertBell.addEventListener('click', e => {
   const element = e.target;
@@ -48,7 +48,6 @@ $( function() {
     source: availableNames,
     select: function (e) {
       $( "#input-user").val();
-      return false;
     }
   });
 });
@@ -61,10 +60,16 @@ const messageInput= document.getElementById("input-message");
 
 sendMessage.addEventListener('click', () => {
 
-  if (userInput.value === "" || messageInput.value === "") {
+  if (userInput.value === "" && messageInput.value === "") {
     alert('Please enter information for both fields.');
+  } else if (userInput.value === ""){
+    alert('Please enter user information');
+  } else if (messageInput.value === ""){
+    alert(`Please enter a message for: ${userInput.value}`)
   } else {
     alert(`Your message has been sent to: ${userInput.value}`);
+    userInput.value = "";
+    messageInput.value = "";
   }
 
 })
@@ -215,16 +220,59 @@ var myMobileChart = new Chart(ctx, {
 
 // Local Storage for SETTINGS
 
-  var settingsEmail = document.getElementById('email-settings');
-  var settingsProfile = document.getElementById('profile-settings');
-  var settingsTimeZone = document.querySelector('.timezone-menu');
-  var saveButton = document.querySelector('.button-save');
-  var cancelButton = document.querySelector('.button-cancel');
+const buttons = document.querySelectorAll('button');
 
-  saveButton.addEventListener('click', function(e) {
-    if (settingsEmail.firstElementChild.hasAttribute('checked')) {
-      console.log('yes');
-    } else {
-      console.log('no');
-    };
-  });
+buttons.forEach(btn => {
+  btn.addEventListener('mousedown', event => {
+    btn.style.transform = 'translateY(3px)';
+  })
+  btn.addEventListener('mouseup', event => {
+    btn.style.transform = 'translateY(0)';
+  })
+})
+
+
+
+const saveButton = document.querySelector('.button-save');
+const cancelButton = document.querySelector('.button-cancel');
+
+//grab reference for dom elements
+const settingsEmail = document.querySelector('#email-settings .toggle');
+const settingsProfile = document.querySelector('#profile-settings .toggle');
+const settingsTimeZone = document.querySelector('.timezone-menu');
+
+saveButton.addEventListener('click', e => {
+
+  //check the checkboxes values and set localStorage
+  if (settingsEmail.checked) {
+    localStorage.setItem ('emailSettings', 'on');
+  } else {
+    localStorage.setItem('emailSettings', 'off');
+  }
+
+  if (settingsProfile.checked) {
+    localStorage.setItem('profileSettings', 'public');
+  } else {
+    localStorage.setItem('profileSettings', 'private');
+  };
+
+  // save the timezone selection and set localStorage
+
+  const selectedTimeZone = settingsTimeZone.options[settingsTimeZone.selectedIndex];
+
+  localStorage.setItem('timeZone', selectedTimeZone.innerHTML);
+
+});
+
+cancelButton.addEventListener('click', e => {
+
+  // change all settings to default
+  settingsEmail.checked = false;
+  settingsProfile.checked = false;
+  settingsTimeZone.selectedIndex = 0;
+
+  // update local storage to null
+  localStorage.emailSettings = null;
+  localStorage.profileSettings = null;
+  localStorage.timeZone = null;
+});
