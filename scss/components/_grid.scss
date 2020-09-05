@@ -1,9 +1,11 @@
+// identify grid areas
+
 header {
   grid-area: head;
 }
 
 nav {
-  grid-area: nav;
+  grid-area: mainNav;
 }
 
 main {
@@ -42,11 +44,13 @@ main {
   grid-area: settingsContainer;
 }
 
+/********* MAIN GRID STYLES *********/
+
 .grid-container {
   @include grid-container ($columns: minmax(auto-fit, 1fr));
   grid-template-areas:
     "head"
-    "nav"
+    "mainNav"
     "main"
   ;
 }
@@ -89,21 +93,11 @@ main {
   }
 }
 
-.settings-switches {
-  // @include grid-container (
-  //   $rows: 1fr,
-  //   $gap: 20px
-  // );
-  .columns {
-    float: left;
-    width: 40%;
-  }
-}
-
 
 /********* MEDIA QUERIES *********/
 
 @media (min-width: $breakpoint-med) {
+
   #social-stats-container {
     @include grid-container (
       $columns: 1fr 1fr 1fr,
@@ -113,9 +107,11 @@ main {
       grid-column: 1 / span 3;
     }
   }
+
 }
 
 @media (min-width: $breakpoint-lg) {
+
   .grid-container {
     height: 100vh;
     @include grid-container (
@@ -125,7 +121,7 @@ main {
     );
     grid-template-areas:
       "head head"
-      "nav main"
+      "mainNav main"
   }
 
   .main-content {

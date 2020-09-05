@@ -6,11 +6,11 @@
   color: $text-dark;
 }
 
+/***** HEAD STYLES *****************/
+
 header {
-/*****FLEX CONTAINER*****************/
-  @include padding (
-    $all: 10px,
-  );
+/***** flex *****/
+  @include padding ($all: 10px);
   background-color: $light-main-color;
   * {
     color: $text-light;
@@ -21,11 +21,12 @@ header {
   font-family: $display-font;
 }
 
-#head-right {
-  & h2 {
-    font-weight: 300;
-  }
+#head-right h2 {
+  font-weight: 300;
 }
+
+/***** MAIN NAV STYLES *****************/
+
 
 nav {
 /***** flex *****/
@@ -47,13 +48,14 @@ nav {
 }
 
 .main-header-search {
-  text-align: right;
   @include padding (
     $top: 10px,
     $right: 15px,
     $bott: 10px
   );
   background-color: $text-area-light;
+  text-align: right;
+
   input {
     @include padding ($all: 3px);
     width: 50%;
@@ -77,8 +79,8 @@ nav {
   width: 300px;
 
   li {
-    display: inline-block;
     @include padding ($all: 8px);
+    display: inline-block;
     margin: 5px;
     background-color: transparentize($text-light, 0.2);
     color: $text-dark;
@@ -110,7 +112,7 @@ nav {
   float: right;
 }
 
-/***** MAIN CONTENT STYLES *****************/
+/***** TRAFFIC CHART NAV / SECTION STYLES *****/
 
 .traffic-chart-nav li {
   @include padding ($all: 2px);
@@ -138,9 +140,9 @@ nav {
 #message-container,
 #settings-container
  {
-  border-bottom: 0px solid $text-light;
   @include padding ($all: 20px);
   box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5);
+  border-bottom: 0px solid $text-light;
 }
 
 #settings-container {
@@ -201,6 +203,8 @@ nav {
   }
 }
 
+//////// Autocomplete plug-in styles ///////////
+
 .ui-autocomplete {
   list-style-type: none;
   background-color: white;
@@ -210,40 +214,19 @@ nav {
 .ui-widget-content {
   background: $text-light;
   border: 1px solid $text-med;
-
 }
 
 .ui-helper-hidden-accessible {
   display: none;
 }
 
+//////// //////// //////// //////// ////////
 
 #settings-container {
 /***** flex *****/
   span {
     color: white;
   }
-}
-
-.switch-light,
-.settings-buttons-container,
-.timezone-menu {
-  width: 100%;
-}
-
-.settings-switches {
-  width: 100%;
-  label {
-    margin-bottom: 20px;
-  }
-}
-
-.switch-material.switch-light input:checked ~ span a {
-  background: $accent-primary;
-}
-
-.switch-material.switch-light input:checked ~ span {
-  background: transparentize($accent-primary, 0.5);
 }
 
 .timezone-menu {
@@ -265,9 +248,38 @@ nav {
   background-color: darken($text-area-light, 10);
 }
 
+//////// Toggle switch styles ///////////
+
+.switch-light,
+.settings-buttons-container,
+.timezone-menu {
+  width: 100%;
+}
+
+.settings-switches {
+  width: 100%;
+  label {
+    margin-bottom: 20px;
+  }
+  .columns {
+    float: left;
+    width: 40%;
+  }
+}
+
+.switch-material.switch-light input:checked ~ span {
+  background: transparentize($accent-primary, 0.5);
+  a {
+    background: $accent-primary;
+  }
+}
+
+//////// //////// //////// ////////
+
 /***** MEDIA QUERIES *****************/
 
 @media (min-width: $breakpoint-med) {
+
   .chart-container,
   #social-stats-container,
   #members-container,
@@ -276,6 +288,7 @@ nav {
   #settings-container {
     @include padding ($all: 30px);
   }
+
   #head-right {
     margin-left: auto;
     .bell-container {
