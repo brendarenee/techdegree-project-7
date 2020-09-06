@@ -83,7 +83,6 @@ Chart.defaults.global.defaultFontFamily = '\'Open Sans Condensed\', sans-serif';
 const mqMd = window.matchMedia('(min-width: 768px)');
 const mqLg = window.matchMedia('(min-width: 1024px)');
 let chartSize = 0;
-console.log(mqLg.matches);
 
 function checkScreenSize () {
   if (mqLg.matches) {
@@ -241,6 +240,7 @@ const settingsEmail = document.querySelector('#email-settings .toggle');
 const settingsProfile = document.querySelector('#profile-settings .toggle');
 const settingsTimeZone = document.querySelector('.timezone-menu');
 
+
 saveButton.addEventListener('click', e => {
 
   //check the checkboxes values and set localStorage
@@ -264,6 +264,24 @@ saveButton.addEventListener('click', e => {
 
 });
 
+window.onload = function () {
+  localStorage.getItem('emailSettings');
+  localStorage.getItem('profileSettings');
+  localStorage.getItem('timeZone');
+
+  if (localStorage.getItem('emailSettings') === 'on') {
+    settingsEmail.checked = true;
+  } else {
+    settingsEmail.checked = false;
+  }
+
+  if (localStorage.getItem('profileSettings') === 'public') {
+    settingsProfile.checked = true;
+  } else {
+    settingsProfile.checked = false;
+  }
+}
+
 cancelButton.addEventListener('click', e => {
 
   // change all settings to default
@@ -272,7 +290,7 @@ cancelButton.addEventListener('click', e => {
   settingsTimeZone.selectedIndex = 0;
 
   // update local storage to null
-  localStorage.emailSettings = null;
-  localStorage.profileSettings = null;
-  localStorage.timeZone = null;
+  localStorage.removeItem('emailSettings');
+  localStorage.removeItem('profileSettings');
+  localStorage.removeItem('timeZone');
 });

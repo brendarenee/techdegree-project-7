@@ -2,6 +2,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap");
 /*** BODY COLORS ***/
 /*** FONT COLORS ***/
+.member-activity, .members {
+  border-bottom: 1px solid lightgray;
+}
+.member-activity:nth-child(5), .members:nth-child(5) {
+  border: none;
+}
+
 .timezone-menu, #message-container textarea, #message-container input {
   width: 100%;
   margin-bottom: 10px;
@@ -37,7 +44,6 @@
 
 /***** HEAD STYLES *****************/
 header {
-  /***** flex *****/
   padding: 10px;
   background-color: #5a8d77;
 }
@@ -55,7 +61,6 @@ header * {
 
 /***** MAIN NAV STYLES *****************/
 nav {
-  /***** flex *****/
   background-color: #466b5b;
   padding-top: 20px;
 }
@@ -166,7 +171,6 @@ nav a {
 
 /***** CONTAINER STYLES *****/
 .stats-widget {
-  /***** flex *****/
   height: 125px;
   background-color: #eeeeee;
   border: 1px solid darkgray;
@@ -180,29 +184,20 @@ nav a {
   font-size: 20px;
 }
 
-#members-container {
-  /***** grid *****/
-}
-#members-container .members {
+.members {
   padding: 10px;
 }
-#members-container .members .member-img {
+.members .member-img {
   margin-right: 10px;
 }
 
-#activity-container {
-  /***** grid *****/
-}
-#activity-container .member-activity {
+.member-activity {
   padding: 10px;
 }
-#activity-container .member-activity .member-img {
+.member-activity .member-img {
   margin-right: 10px;
 }
 
-#message-container {
-  /***** flex *****/
-}
 #message-container input {
   height: 30px;
 }
@@ -228,9 +223,6 @@ nav a {
   display: none;
 }
 
-#settings-container {
-  /***** flex *****/
-}
 #settings-container span {
   color: white;
 }

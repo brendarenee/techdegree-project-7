@@ -9,7 +9,7 @@
 /***** HEAD STYLES *****************/
 
 header {
-/***** flex *****/
+//////// flex ////////
   @include padding ($all: 10px);
   background-color: $light-main-color;
   * {
@@ -29,7 +29,7 @@ header {
 
 
 nav {
-/***** flex *****/
+//////// flex ////////
   background-color: $dark-main-color;
   @include padding ($top: 20px);
   a {
@@ -153,7 +153,7 @@ nav {
 /***** CONTAINER STYLES *****/
 
 .stats-widget {
-/***** flex *****/
+//////// flex ////////
   height: 125px;
   background-color: $text-area-light;
   border: 1px solid $text-med;
@@ -167,28 +167,30 @@ nav {
   }
 }
 
-#members-container {
-/***** grid *****/
-  .members {
-    @include padding ($all: 10px);
-    .member-img {
-      margin-right: 10px;
-    }
+//////// #members-container ////////
+//////// grid ////////
+
+.members {
+  @include padding ($all: 10px);
+  @extend %divider;
+  .member-img {
+    margin-right: 10px;
   }
 }
 
-#activity-container {
-/***** grid *****/
-  .member-activity {
-    @include padding ($all: 10px);
-    .member-img {
-      margin-right: 10px;
-    }
+//////// #activity-container ////////
+//////// grid ////////
+
+.member-activity {
+  @include padding ($all: 10px);
+  @extend %divider;
+  .member-img {
+    margin-right: 10px;
   }
 }
 
 #message-container {
-/***** flex *****/
+//////// flex ////////
   input {
     @extend %text-input;
     height: 30px;
@@ -223,7 +225,7 @@ nav {
 //////// //////// //////// //////// ////////
 
 #settings-container {
-/***** flex *****/
+//////// flex ////////
   span {
     color: white;
   }

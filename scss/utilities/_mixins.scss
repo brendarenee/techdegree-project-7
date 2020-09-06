@@ -34,6 +34,12 @@
   padding-left: $left;
 }
 
+%divider {
+  border-bottom: 1px solid $text-light;
+  &:nth-child(5) {
+    border: none;
+  }
+}
 
 %text-input {
   width: 100%;
